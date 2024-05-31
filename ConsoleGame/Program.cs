@@ -25,8 +25,6 @@ namespace ConsoleGame
             Console.WriteLine($"One has {oneWins} wins.");
             Console.WriteLine($"Two has {twoWins} wins.");
 
-            Console.WriteLine("tthis sucks");
-
             Console.ReadLine();
         }
     }
