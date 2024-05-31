@@ -10,6 +10,8 @@ namespace ArenaGame
     {
         const int BlockDamageChance = 10;
         private const int ExtraDamageChance = 5;
+        private const int swordStrikeChance = 15;
+        Sword Sword = new Sword();
 
         public Knight() : this("Sir John")
         {
@@ -37,6 +39,9 @@ namespace ArenaGame
         {
             int attack = base.Attack();
             if (ThrowDice(ExtraDamageChance)) attack = attack * 150 / 100;
+
+            if (ThrowDice(swordStrikeChance)) attack = attack + Sword.Strike();
+
             return attack;
         }
     }

@@ -8,6 +8,7 @@ namespace ArenaGame
 {
     public class Archer : Hero
     {
+        private const int tripleShootChance = 10;
         Bow Bow = new Bow();
         public Archer (string name) : base(name)
         {
@@ -17,7 +18,7 @@ namespace ArenaGame
         public override int Attack()
         {
             int attack = base.Attack();
-            bool tripleShoot = ThrowDice(10);
+            bool tripleShoot = ThrowDice(tripleShootChance);
             if (Bow.Shoot())
             {
                 if (tripleShoot)

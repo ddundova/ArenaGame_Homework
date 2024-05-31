@@ -8,6 +8,8 @@ namespace ArenaGame
 {
     public class Mage : Hero
     {
+        private const int reduceDamageChance = 7;
+        private const int castSpellPossibility = 40;
         Wand Wand = new Wand();
 
         public Mage(string name) : base(name)
@@ -19,7 +21,7 @@ namespace ArenaGame
         {
             int attack = base.Attack();
 
-            if (ThrowDice(40))
+            if (ThrowDice(castSpellPossibility))
             {
                 attack = attack + Wand.CastSpell();
             }
@@ -29,7 +31,7 @@ namespace ArenaGame
 
         public override void TakeDamage(int incomingDamage)
         {
-            if (ThrowDice(7)) incomingDamage = incomingDamage % 10;
+            if (ThrowDice(reduceDamageChance)) incomingDamage = incomingDamage % 10;
             base.TakeDamage(incomingDamage);
         }
     }
